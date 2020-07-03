@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-
 @RestController
 public class WebController {
 
@@ -25,7 +23,7 @@ public class WebController {
 	}
 
 	@RequestMapping(value = "/user/save")
-	public String saveUser(@Valid User user, BindingResult result) {
+	public String saveUser(User user, BindingResult result) {
 		System.out.println("user: " + user);
 		if (result.hasErrors()) {
 			for (ObjectError err : result.getAllErrors()) {
