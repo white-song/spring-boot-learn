@@ -30,9 +30,9 @@ public class UserInfoServiceImpl implements UserInfoService {
                 predicates.add(cb.equal(root.get("id"),detailParam.getUserId()));
             }
             //like 示例
-            if (!StringUtils.isNullOrEmpty(detailParam.getEmail())){
-                predicates.add(cb.like(root.get("email"),"%"+detailParam.getEmail()+"%"));
-            }
+//            if (!StringUtils.isNullOrEmpty(detailParam.getEmail())){
+//                predicates.add(cb.like(root.get("email"),"%"+detailParam.getEmail()+"%"));
+//            }
             return query.where(predicates.toArray(new Predicate[0])).getRestriction();
         }, pageable);
     }

@@ -2,12 +2,12 @@ package com.white.learn.model;
 
 
 import lombok.*;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -19,17 +19,21 @@ public class UserInfo {
     @GeneratedValue
     private Long id;
     @Column(nullable = false, unique = true)
-    private String name;
+    private String userName;
+    @Column(nullable = false)
+    private String password;
     private String email;
+    @Column(nullable = false)
+    private Date regTime;
 
-    public UserInfo(String name, String email) {
-        this.name = name;
+    public UserInfo(String userName, String email) {
+        this.userName = userName;
         this.email = email;
     }
 
-    public UserInfo(Long id, String name, String email) {
+    public UserInfo(Long id, String userName, String email) {
         this.id = id;
-        this.name = name;
+        this.userName = userName;
         this.email = email;
     }
 }

@@ -24,8 +24,8 @@ public class WebTests {
 
 	@Test
 	void testHello() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.post("/hello?name=小米").accept(MediaType.APPLICATION_JSON_UTF8))
-				.andDo(MockMvcResultHandlers.print());
+//		mockMvc.perform(MockMvcRequestBuilders.post("/hello?name=小米").accept(MediaType.APPLICATION_JSON_UTF8))
+//				.andDo(MockMvcResultHandlers.print());
 	}
 
 	@Test

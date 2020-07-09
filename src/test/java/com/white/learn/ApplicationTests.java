@@ -1,6 +1,5 @@
 package com.white.learn;
 
-import com.white.learn.mapper.primary.UserMapper;
 import com.white.learn.model.User;
 import com.white.learn.model.UserInfo;
 import com.white.learn.param.UserInfoParam;
@@ -10,14 +9,16 @@ import com.white.learn.service.UserInfoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.system.OutputCaptureExtension;
+import org.springframework.boot.test.system.OutputCaptureRule;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 class ApplicationTests {
@@ -63,11 +64,20 @@ class ApplicationTests {
 
 		Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
 		UserInfoParam param=new UserInfoParam();
-		param.setEmail("qq.com");
+//		param.setEmail("qq.com");
 		Page<UserInfo> pages=userInfoService.findByCondition(param,pageable);
 		for (UserInfo userInfo:pages){
 			System.out.println("userInfo: "+userInfo.toString());
 		}
+	}
+
+	@Test
+	void testTmp() {
+		OutputCaptureRule outputCaptureRule = new OutputCaptureRule();
+
+		System.out.println("aaaaaaaaa");
+
+		assertThat(outputCaptureRule.toString().contains("aaa")).isTrue();
 	}
 
 }
