@@ -23,17 +23,18 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     @Override
     public Page<UserInfo> findByCondition(UserInfoParam detailParam, Pageable pageable) {
-        return userInfoRepository.findAll((root, query, cb) -> {
-            List<Predicate> predicates = new ArrayList<Predicate>();
-            //equal 示例
-            if (!StringUtils.isNullOrEmpty(detailParam.getUserId())){
-                predicates.add(cb.equal(root.get("id"),detailParam.getUserId()));
-            }
-            //like 示例
-//            if (!StringUtils.isNullOrEmpty(detailParam.getEmail())){
-//                predicates.add(cb.like(root.get("email"),"%"+detailParam.getEmail()+"%"));
+//        return userInfoRepository.findAll((root, query, cb) -> {
+//            List<Predicate> predicates = new ArrayList<Predicate>();
+//            //equal 示例
+//            if (!StringUtils.isNullOrEmpty(detailParam.getUserId())){
+//                predicates.add(cb.equal(root.get("id"),detailParam.getUserId()));
 //            }
-            return query.where(predicates.toArray(new Predicate[0])).getRestriction();
-        }, pageable);
+//            //like 示例
+////            if (!StringUtils.isNullOrEmpty(detailParam.getEmail())){
+////                predicates.add(cb.like(root.get("email"),"%"+detailParam.getEmail()+"%"));
+////            }
+//            return query.where(predicates.toArray(new Predicate[0])).getRestriction();
+//        }, pageable);
+        return null;
     }
 }
